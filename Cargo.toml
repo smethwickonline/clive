@@ -1,5 +1,6 @@
 [workspace]
 
 members = [
+	"clibrary",
 	"apps/clock"
 ]

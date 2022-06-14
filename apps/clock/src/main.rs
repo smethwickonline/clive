@@ -1,5 +1,6 @@
 mod timekeeping;
 mod widgets;
+mod test;
 
 use druid::{
     widget::{Flex, Label},
