@@ -1,7 +1,7 @@
 use std::time::Duration;
 
-use druid::{widget::Label, TimerToken, Widget, Event, EventCtx, Env};
-use crate::timekeeping::{Time};
+use crate::timekeeping::Time;
+use druid::{widget::Label, Env, Event, EventCtx, TimerToken, Widget};
 
 pub struct ClockWidget {
     pub timer_id: TimerToken,
@@ -10,17 +10,23 @@ pub struct ClockWidget {
 
 static TIMER_INTERVAL: Duration = Duration::from_millis(100);
 
+impl ClockWidget {
+    fn update_text(&mut self, data: &mut Time, ctx: &mut EventCtx) {
+        self.label.set_text(data.set_time().to_string());
+        ctx.request_layout();
+        self.timer_id = ctx.request_timer(TIMER_INTERVAL);
+    }
+}
+
 impl Widget<Time> for ClockWidget {
     fn event(&mut self, ctx: &mut EventCtx, event: &Event, data: &mut Time, env: &Env) {
         match event {
             Event::WindowConnected => {
-                self.timer_id = ctx.request_timer(TIMER_INTERVAL);
+                self.update_text(data, ctx)
             }
             Event::Timer(id) => {
                 if *id == self.timer_id {
-                    self.label.set_text(data.set_time().to_string());
-                    ctx.request_layout();
-                    self.timer_id = ctx.request_timer(TIMER_INTERVAL);
+                    self.update_text(data, ctx)
                 }
             }
             _ => (),
@@ -28,7 +34,13 @@ impl Widget<Time> for ClockWidget {
         self.label.event(ctx, event, data, env);
     }
 
-    fn lifecycle(&mut self, ctx: &mut druid::LifeCycleCtx, event: &druid::LifeCycle, data: &Time, env: &Env) {
+    fn lifecycle(
+        &mut self,
+        ctx: &mut druid::LifeCycleCtx,
+        event: &druid::LifeCycle,
+        data: &Time,
+        env: &Env,
+    ) {
         self.label.lifecycle(ctx, event, data, env)
     }
 
@@ -36,7 +48,13 @@ impl Widget<Time> for ClockWidget {
         self.label.update(ctx, old_data, data, env)
     }
 
-    fn layout(&mut self, ctx: &mut druid::LayoutCtx, bc: &druid::BoxConstraints, data: &Time, env: &Env) -> druid::Size {
+    fn layout(
+        &mut self,
+        ctx: &mut druid::LayoutCtx,
+        bc: &druid::BoxConstraints,
+        data: &Time,
+        env: &Env,
+    ) -> druid::Size {
         self.label.layout(ctx, bc, data, env)
     }
 
