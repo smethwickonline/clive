@@ -1,28 +1,30 @@
-use chrono::{self, Local};
-use druid::widget::Label;
+mod timekeeping;
+mod widgets;
+
 use druid::{
-    AppLauncher, LocalizedString, PlatformError, Size, Widget, WidgetExt, WindowDesc,
+    widget::{Flex, Label},
+    AppLauncher, LocalizedString, Size, TimerToken, WindowDesc, UnitPoint, WidgetExt,
 };
-#[derive(Copy, Clone, Debug)]
-struct AppData {
-    current_time: chrono::DateTime<Local>,
-}
+use timekeeping::Time;
+use widgets::ClockWidget;
 
-fn main() -> Result<(), PlatformError> {
-    let data = chrono::Local::now().to_string();
-    let main_window = WindowDesc::new(ui_builder())
-        .window_size(Size::new(360.0, 640.0))
-        .resizable(false);
-    AppLauncher::with_window(main_window)
+fn main() {
+    let window = WindowDesc::new(
+        Flex::column()
+            .with_child(ClockWidget {
+                timer_id: TimerToken::INVALID,
+                label: Label::new("00:00:00").with_text_size(32f64),
+            })
+            .align_vertical(UnitPoint::CENTER),
+    )
+    .window_size(Size::new(360.0, 640.0))
+    .resizable(false)
+    .title(LocalizedString::new("clock-window-title").with_placeholder("Clock"));
+
+    let time = Time::new();
+
+    AppLauncher::with_window(window)
         .log_to_console()
-        .localization_resources(vec!["main.ftl".to_owned()], "strings".to_owned())
-        .launch(data)
-}
-
-fn ui_builder() -> impl Widget<String> {
-    let text = LocalizedString::new("test-string")
-        .with_arg("thyme", |data: &String, _env| data.to_string().into());
-    let label = Label::new(text).padding(5.0).center();
-
-    label
+        .launch(time)
+        .expect("oh dear!");
 }
