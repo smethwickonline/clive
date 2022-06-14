@@ -1,6 +1,9 @@
+#![windows_subsystem = "windows"]
+
 mod timekeeping;
 mod widgets;
 mod test;
+
 
 use druid::{
     widget::{Flex, Label},
