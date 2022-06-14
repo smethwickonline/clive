@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-use chrono::{Timelike, Local};
+use chrono::{Local};
 use druid::Data;
 
 // this struct is potentially unnecessary
@@ -22,6 +22,6 @@ impl Time {
 
 impl Display for Time {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-        write!(f, "{:0>2}:{:0>2}:{:0>2}", self.time.hour(), self.time.minute(), self.time.second())
+        write!(f, "{}", self.time.format("%H:%M:%S"))
     }
 }
