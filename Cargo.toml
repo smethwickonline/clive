@@ -2,5 +2,6 @@
 
 members = [
 	"clibrary",
-	"apps/clock"
+	"apps/clock",
+	"apps/calculator"
 ]
