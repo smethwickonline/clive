@@ -13,7 +13,7 @@ ok you just gotta do a
 
 ```bash
 # run a specific app
-cargo run apps/clock
+cargo run --bin clock
 
 # build everything
 cargo build
