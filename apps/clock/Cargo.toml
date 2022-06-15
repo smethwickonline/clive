@@ -10,3 +10,4 @@ druid = { git = "https://github.com/linebender/druid.git" }
 tracing = "0.1"
 tokio = "1"
 chrono = "0.4"
+stuff = { path = "../../stuff"}

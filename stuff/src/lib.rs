@@ -1,3 +1,6 @@
+pub mod ui;
+pub mod theme;
+
 #[cfg(test)]
 mod tests {
     #[test]

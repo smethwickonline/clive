@@ -21,9 +21,7 @@ impl ClockWidget {
 impl Widget<Time> for ClockWidget {
     fn event(&mut self, ctx: &mut EventCtx, event: &Event, data: &mut Time, env: &Env) {
         match event {
-            Event::WindowConnected => {
-                self.update_text(data, ctx)
-            }
+            Event::WindowConnected => self.update_text(data, ctx),
             Event::Timer(id) => {
                 if *id == self.timer_id {
                     self.update_text(data, ctx)
