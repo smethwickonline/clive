@@ -1,13 +1,13 @@
 use std::fmt::Display;
 
-use chrono::{Local};
+use chrono::Local;
 use druid::Data;
 
 // this struct is potentially unnecessary
 #[derive(Clone, Data)]
 pub struct Time {
     #[data(eq)]
-    time: chrono::DateTime<Local>
+    time: chrono::DateTime<Local>,
 }
 
 impl Time {
@@ -16,7 +16,9 @@ impl Time {
         self
     }
     pub fn new() -> Time {
-        Time { time: chrono::Local::now() } 
+        Time {
+            time: chrono::Local::now(),
+        }
     }
 }
 

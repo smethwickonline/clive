@@ -8,9 +8,9 @@ use druid::{
     widget::{Flex, Label},
     AppLauncher, LocalizedString, Size, TimerToken, UnitPoint, WidgetExt, WindowDesc,
 };
+use stuff::ui::icon;
 use timekeeping::Time;
 use widgets::ClockWidget;
-use stuff::ui::icon;
 
 fn main() {
     let window = WindowDesc::new(

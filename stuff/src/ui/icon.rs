@@ -1,5 +1,8 @@
 #![allow(dead_code)] // TODO: remove this before pushing or be eternally embarrased
-use druid::{widget::{Svg, SvgData, FillStrat, Flex}, Widget, Data, WidgetExt};
+use druid::{
+    widget::{FillStrat, Flex, Svg, SvgData},
+    Data, Widget, WidgetExt,
+};
 
 /// Helper widget for drawing icons from the Phosphor set.
 struct IconWidget {
@@ -38,4 +41,3 @@ pub fn icon<T: druid::Data>() -> impl Widget<T> {
     let svg = Svg::new(svg.clone()).fix_width(32.0).center();
     svg
 }
-
