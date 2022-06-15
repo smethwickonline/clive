@@ -104,6 +104,9 @@ dependencies = [
 [[package]]
 name = "calculator"
 version = "0.1.0"
+dependencies = [
+ "druid",
+]
 
 [[package]]
 name = "cfg-expr"

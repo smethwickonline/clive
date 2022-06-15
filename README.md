@@ -5,7 +5,7 @@
 </p>
 
 # clive
-a small-ish initiative from the smethwick project. it's a platform for mobile phones (and mobile phones only, don't @ me about tablets they're just worse computers).
+a desktop environment for mobile phones
 
 ### how 2 run
 
