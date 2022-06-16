@@ -13,15 +13,11 @@ pub const NEUTRAL_800: Key<Color> = Key::new("online.smethwick.clive.theme.neutr
 pub const NEUTRAL_900: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_900");
 pub const NEUTRAL_1000: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_1000");
 
-pub const THEME_100: Key<Color> = Key::new("online.smethwick.clive.theme.theme_100");
-pub const THEME_200: Key<Color> = Key::new("online.smethwick.clive.theme.theme_200");
-pub const THEME_300: Key<Color> = Key::new("online.smethwick.clive.theme.theme_300");
-pub const THEME_400: Key<Color> = Key::new("online.smethwick.clive.theme.theme_400");
-pub const THEME_500: Key<Color> = Key::new("online.smethwick.clive.theme.theme_500");
-pub const THEME_600: Key<Color> = Key::new("online.smethwick.clive.theme.theme_600");
-pub const THEME_700: Key<Color> = Key::new("online.smethwick.clive.theme.theme_700");
-pub const THEME_800: Key<Color> = Key::new("online.smethwick.clive.theme.theme_800");
-pub const THEME_900: Key<Color> = Key::new("online.smethwick.clive.theme.theme_900");
+pub const THEME_EXTRA_LIGHT: Key<Color> = Key::new("online.smethwick.clive.theme.theme_el");
+pub const THEME_LIGHT: Key<Color> = Key::new("online.smethwick.clive.theme.theme_l");
+pub const THEME_BRIGHT: Key<Color> = Key::new("online.smethwick.clive.theme.theme_b");
+pub const THEME_DARK: Key<Color> = Key::new("online.smethwick.clive.theme.theme_d");
+pub const THEME_EXTRA_DARK: Key<Color> = Key::new("online.smethwick.clive.theme.theme_ed");
 
 pub const FONT: Key<FontDescriptor> = Key::new("online.smethwick.clive.theme.ui_font");
 
@@ -38,6 +34,8 @@ pub fn setup(env: &mut Env) {
     env.set(NEUTRAL_800, Color::from_rgba32_u32(0xd4d4d4ff));
     env.set(NEUTRAL_900, Color::from_rgba32_u32(0xf1f1f1ff));
     env.set(NEUTRAL_1000, Color::from_rgba32_u32(0xffffffff));
+
+    env.set(THEME_EXTRA_LIGHT, Color::from_rgba32_u32(0xcff6d3ff));
 
     // FIXME: this doesn't check if the font exists. probably not a huge deal rn
     // since it should just fall back to the default gtk font if it can't find roboto

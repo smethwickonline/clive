@@ -30,6 +30,7 @@ fn main() {
 
     AppLauncher::with_window(window)
         .log_to_console()
+        // fixme: make it so we don't need a closure here
         .configure_env(|env, _| stuff::theme::setup(env))
         .launch(time)
         .expect("oh dear!");
