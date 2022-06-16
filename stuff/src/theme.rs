@@ -1,7 +1,7 @@
 use druid::{theme::*, FontDescriptor, FontFamily};
 use druid::{Color, Env, Key};
 
-pub const NEUTRAL_0: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_100");
+pub const NEUTRAL_0: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_0");
 pub const NEUTRAL_100: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_100");
 pub const NEUTRAL_200: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_200");
 pub const NEUTRAL_300: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_300");
@@ -9,9 +9,9 @@ pub const NEUTRAL_400: Key<Color> = Key::new("online.smethwick.clive.theme.neutr
 pub const NEUTRAL_500: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_500");
 pub const NEUTRAL_600: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_600");
 pub const NEUTRAL_700: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_700");
-pub const NEUTRAL_800: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_700");
-pub const NEUTRAL_900: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_700");
-pub const NEUTRAL_1000: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_700");
+pub const NEUTRAL_800: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_800");
+pub const NEUTRAL_900: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_900");
+pub const NEUTRAL_1000: Key<Color> = Key::new("online.smethwick.clive.theme.neutral_1000");
 
 pub const THEME_100: Key<Color> = Key::new("online.smethwick.clive.theme.theme_100");
 pub const THEME_200: Key<Color> = Key::new("online.smethwick.clive.theme.theme_200");
@@ -20,8 +20,8 @@ pub const THEME_400: Key<Color> = Key::new("online.smethwick.clive.theme.theme_4
 pub const THEME_500: Key<Color> = Key::new("online.smethwick.clive.theme.theme_500");
 pub const THEME_600: Key<Color> = Key::new("online.smethwick.clive.theme.theme_600");
 pub const THEME_700: Key<Color> = Key::new("online.smethwick.clive.theme.theme_700");
-pub const THEME_800: Key<Color> = Key::new("online.smethwick.clive.theme.theme_700");
-pub const THEME_900: Key<Color> = Key::new("online.smethwick.clive.theme.theme_700");
+pub const THEME_800: Key<Color> = Key::new("online.smethwick.clive.theme.theme_800");
+pub const THEME_900: Key<Color> = Key::new("online.smethwick.clive.theme.theme_900");
 
 pub const FONT: Key<FontDescriptor> = Key::new("online.smethwick.clive.theme.ui_font");
 
