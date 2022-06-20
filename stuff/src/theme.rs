@@ -21,6 +21,36 @@ pub const THEME_EXTRA_DARK: Key<Color> = Key::new("online.smethwick.clive.theme.
 
 pub const FONT: Key<FontDescriptor> = Key::new("online.smethwick.clive.theme.ui_font");
 
+pub fn set_theme_colours_based_on_the_theme_colour_that_is_currently_set_thanks(env: &mut Env) {
+    // TODO: get theme from config db
+    // "leah why don't you use an enum for this" why don't you shut the fuck up
+    let theme = "ectoplasm";
+
+    match theme {
+        "ectoplasm" => {
+            env.set(THEME_EXTRA_LIGHT, Color::from_rgba32_u32(0xcff6d3ff));
+            env.set(THEME_LIGHT, Color::from_rgba32_u32(0xA4E9AFff));
+            env.set(THEME_BRIGHT, Color::from_rgba32_u32(0x61C182ff));
+            env.set(THEME_DARK, Color::from_rgba32_u32(0x0C2B15ff));
+            env.set(THEME_EXTRA_DARK, Color::from_rgba32_u32(0x02140Aff));
+        }
+        "weezer" => {
+            env.set(THEME_EXTRA_LIGHT, Color::from_rgba32_u32(0xE3F8FFff));
+            env.set(THEME_LIGHT, Color::from_rgba32_u32(0x84D6F2ff));
+            env.set(THEME_BRIGHT, Color::from_rgba32_u32(0x009ACEff));
+            env.set(THEME_DARK, Color::from_rgba32_u32(0x09303Dff));
+            env.set(THEME_EXTRA_DARK, Color::from_rgba32_u32(0x020F13ff));
+        }
+        &_ => {
+            env.set(THEME_EXTRA_LIGHT, Color::from_rgba32_u32(0xcff6d3ff));
+            env.set(THEME_LIGHT, Color::from_rgba32_u32(0xA4E9AFff));
+            env.set(THEME_BRIGHT, Color::from_rgba32_u32(0x61C182ff));
+            env.set(THEME_DARK, Color::from_rgba32_u32(0x0C2B15ff));
+            env.set(THEME_EXTRA_DARK, Color::from_rgba32_u32(0x02140Aff));
+        }
+    }
+}
+
 pub fn setup(env: &mut Env) {
     // colour definitons
     env.set(NEUTRAL_0, Color::from_rgba32_u32(0x000000ff));
@@ -35,7 +65,7 @@ pub fn setup(env: &mut Env) {
     env.set(NEUTRAL_900, Color::from_rgba32_u32(0xf1f1f1ff));
     env.set(NEUTRAL_1000, Color::from_rgba32_u32(0xffffffff));
 
-    env.set(THEME_EXTRA_LIGHT, Color::from_rgba32_u32(0xcff6d3ff));
+    set_theme_colours_based_on_the_theme_colour_that_is_currently_set_thanks(env);
 
     // FIXME: this doesn't check if the font exists. probably not a huge deal rn
     // since it should just fall back to the default gtk font if it can't find roboto
